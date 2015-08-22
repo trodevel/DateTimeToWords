@@ -1,4 +1,4 @@
-# Makefile for libDataTimeToWords
+# Makefile for libDateTimeToWords
 # Copyright (C) 2015 Sergey Kolevatov
 
 ###################################################################
@@ -13,9 +13,9 @@ EXT_LIBS=
 
 ###################################################################
 
-PROJECT := DataTimeToWords
+PROJECT := DateTimeToWords
 
-LIBNAME=libDataTimeToWords
+LIBNAME=libDateTimeToWords
 
 ###################################################################
 
@@ -62,7 +62,7 @@ TAR=tar
 SHELL=/bin/sh
 EXE=
 
-SRCC =
+SRCC = EnglishDateToWords.cpp
 
 OBJS = $(patsubst %.cpp,$(OBJDIR)/%.o,$(SRCC)) $(patsubst %.c,$(OBJDIR)/%.o,$(SRCC))
 
