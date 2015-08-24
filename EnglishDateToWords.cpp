@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2389 $ $Date:: 2015-08-22 #$ $Author: serge $
+// $Revision: 2391 $ $Date:: 2015-08-24 #$ $Author: serge $
 
 #include "EnglishDateToWords.h"     // self
 
@@ -101,6 +101,32 @@ std::string EnglishDateToWords::year_to_words( unsigned int year )
     return res.str();
 }
 
+/*
+https://www.ego4u.com/en/cram-up/vocabulary/date/written
+
+2. Writing and saying the date in British English
+
+rule: day – month – year
+        Day         Month   Year
+You write:      1st         January,    2010
+You say:    the     first   of  January     twenty ten
+
+Note: The two letters at the end of the number and the comma are often left out.
+3. Writing and saying the date in American English
+
+rule: month – day – year
+    Month       Day     Year
+You write:  January         1st,    2010
+You say:    January     (the)*  first   twenty ten
+
+* The definite article ›the‹ can be left out.
+4. Sample sentences and the correct prepositions:
+
+    I was born in 1999. (Use in with the year.)
+    I was born in August. (Use in with the month.)
+    I was born on 12th May, 2000. (Use on in the complete date.)
+ *
+ */
 const std::string & EnglishDateToWords::month_to_words( unsigned int month )
 {
     static const std::string months[] =
