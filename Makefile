@@ -62,7 +62,9 @@ TAR=tar
 SHELL=/bin/sh
 EXE=
 
-SRCC = EnglishDateToWords.cpp
+SRCC =  AEnglishDateToWords.cpp \
+		EnglishDateToWords.cpp \
+		EnglishTimeToWords.cpp \
 
 OBJS = $(patsubst %.cpp,$(OBJDIR)/%.o,$(SRCC)) $(patsubst %.c,$(OBJDIR)/%.o,$(SRCC))
 

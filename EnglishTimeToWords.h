@@ -1,6 +1,6 @@
 /*
 
-EnglishDateToWords.
+EnglishTimeToWords.
 
 Copyright (C) 2015 Sergey Kolevatov
 
@@ -19,30 +19,31 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2395 $ $Date:: 2015-08-25 #$ $Author: serge $
+// $Revision: 2403 $ $Date:: 2015-08-25 #$ $Author: serge $
 
-#ifndef ENGLISH_DATE_TO_WORDS_H
-#define ENGLISH_DATE_TO_WORDS_H
+#ifndef ENGLISH_TIME_TO_WORDS_H
+#define ENGLISH_TIME_TO_WORDS_H
 
-#include "IDateToWords.h"       // IDateToWords
+#include "ITimeToWords.h"       // ITimeToWords
 
 namespace DateTimeToWords
 {
 
-class EnglishDateToWords: public IDateToWords
+class EnglishTimeToWords: public ITimeToWords
 {
 public:
 
-    virtual std::string to_words( unsigned int month, unsigned int day );
-    virtual std::string to_words( unsigned int year, unsigned int month, unsigned int day );
+    virtual std::string to_words( unsigned int hour, unsigned int minute );
+    virtual std::string to_words( unsigned int hour, unsigned int minute, unsigned int second );
 
 protected:
 
-    static std::string year_to_words( unsigned int year );
-    static const std::string & month_to_words( unsigned int month );
-    static std::string day_to_words( unsigned int day );
+    static std::string hour_to_words( unsigned int hour );
+    static std::string minute_to_words( unsigned int minute );
+    static const std::string & hour_to_noon( unsigned int hour );
+
 };
 
 } // namespace DateTimeToWords
 
-#endif // ENGLISH_DATE_TO_WORDS_H
+#endif // ENGLISH_TIME_TO_WORDS_H

@@ -19,30 +19,23 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2395 $ $Date:: 2015-08-25 #$ $Author: serge $
+// $Revision: 2396 $ $Date:: 2015-08-25 #$ $Author: serge $
 
-#ifndef ENGLISH_DATE_TO_WORDS_H
-#define ENGLISH_DATE_TO_WORDS_H
+#ifndef AENGLISH_DATE_TO_WORDS_H
+#define AENGLISH_DATE_TO_WORDS_H
 
-#include "IDateToWords.h"       // IDateToWords
+#include "EnglishDateToWords.h"     // EnglishDateToWords
 
 namespace DateTimeToWords
 {
 
-class EnglishDateToWords: public IDateToWords
+class AEnglishDateToWords: public EnglishDateToWords
 {
 public:
-
     virtual std::string to_words( unsigned int month, unsigned int day );
     virtual std::string to_words( unsigned int year, unsigned int month, unsigned int day );
-
-protected:
-
-    static std::string year_to_words( unsigned int year );
-    static const std::string & month_to_words( unsigned int month );
-    static std::string day_to_words( unsigned int day );
 };
 
 } // namespace DateTimeToWords
 
-#endif // ENGLISH_DATE_TO_WORDS_H
+#endif // AENGLISH_DATE_TO_WORDS_H
