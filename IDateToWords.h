@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2385 $ $Date:: 2015-08-22 #$ $Author: serge $
+// $Revision: 2412 $ $Date:: 2015-08-27 #$ $Author: serge $
 
 #ifndef I_DATE_TO_WORDS_H
 #define I_DATE_TO_WORDS_H
@@ -33,8 +33,8 @@ class IDateToWords
 {
 public:
     virtual ~IDateToWords() {}
-    virtual std::string to_words( unsigned int month, unsigned int day ) = 0;
-    virtual std::string to_words( unsigned int year, unsigned int month, unsigned int day ) = 0;
+    virtual std::string to_words( unsigned int month, unsigned int day ) const = 0;
+    virtual std::string to_words( unsigned int year, unsigned int month, unsigned int day ) const = 0;
 };
 
 } // namespace DateTimeToWords

@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2396 $ $Date:: 2015-08-25 #$ $Author: serge $
+// $Revision: 2412 $ $Date:: 2015-08-27 #$ $Author: serge $
 
 #include "AEnglishDateToWords.h"        // self
 
@@ -40,7 +40,7 @@ You say:    January     (the)*  first   twenty ten
 * The definite article ›the‹ can be left out.
 
 */
-std::string AEnglishDateToWords::to_words( unsigned int month, unsigned int day )
+std::string AEnglishDateToWords::to_words( unsigned int month, unsigned int day ) const
 {
     std::ostringstream res;
 
@@ -49,7 +49,7 @@ std::string AEnglishDateToWords::to_words( unsigned int month, unsigned int day 
     return res.str();
 }
 
-std::string AEnglishDateToWords::to_words( unsigned int year, unsigned int month, unsigned int day )
+std::string AEnglishDateToWords::to_words( unsigned int year, unsigned int month, unsigned int day ) const
 {
     std::ostringstream res;
 

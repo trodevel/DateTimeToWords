@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2385 $ $Date:: 2015-08-22 #$ $Author: serge $
+// $Revision: 2412 $ $Date:: 2015-08-27 #$ $Author: serge $
 
 #ifndef I_TIME_TO_WORDS_H
 #define I_TIME_TO_WORDS_H
@@ -33,8 +33,8 @@ class ITimeToWords
 {
 public:
     virtual ~ITimeToWords() {}
-    virtual std::string to_words( unsigned int hour, unsigned int minute ) = 0;
-    virtual std::string to_words( unsigned int hour, unsigned int minute, unsigned int second ) = 0;
+    virtual std::string to_words( unsigned int hour, unsigned int minute ) const = 0;
+    virtual std::string to_words( unsigned int hour, unsigned int minute, unsigned int second ) const = 0;
 };
 
 } // namespace DateTimeToWords

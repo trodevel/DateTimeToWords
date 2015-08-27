@@ -1,6 +1,6 @@
 /*
 
-EnglishDateToWords.
+GermanDateToWords.
 
 Copyright (C) 2015 Sergey Kolevatov
 
@@ -19,17 +19,17 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2412 $ $Date:: 2015-08-27 #$ $Author: serge $
+// $Revision: 2417 $ $Date:: 2015-08-27 #$ $Author: serge $
 
-#ifndef ENGLISH_DATE_TO_WORDS_H
-#define ENGLISH_DATE_TO_WORDS_H
+#ifndef GERMAN_DATE_TO_WORDS_H
+#define GERMAN_DATE_TO_WORDS_H
 
 #include "IDateToWords.h"       // IDateToWords
 
 namespace DateTimeToWords
 {
 
-class EnglishDateToWords: public IDateToWords
+class GermanDateToWords: public IDateToWords
 {
 public:
 
@@ -45,4 +45,4 @@ protected:
 
 } // namespace DateTimeToWords
 
-#endif // ENGLISH_DATE_TO_WORDS_H
+#endif // GERMAN_DATE_TO_WORDS_H

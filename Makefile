@@ -63,8 +63,11 @@ SHELL=/bin/sh
 EXE=
 
 SRCC =  AEnglishDateToWords.cpp \
+		Converter.cpp \
 		EnglishDateToWords.cpp \
 		EnglishTimeToWords.cpp \
+		GermanDateToWords.cpp \
+		GermanTimeToWords.cpp \
 		PopularEnglishTimeToWords.cpp \
 
 OBJS = $(patsubst %.cpp,$(OBJDIR)/%.o,$(SRCC)) $(patsubst %.c,$(OBJDIR)/%.o,$(SRCC))

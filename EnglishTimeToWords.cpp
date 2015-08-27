@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2405 $ $Date:: 2015-08-26 #$ $Author: serge $
+// $Revision: 2412 $ $Date:: 2015-08-27 #$ $Author: serge $
 
 #include "EnglishTimeToWords.h"     // self
 
@@ -54,7 +54,7 @@ Another possibility of saying '30 minutes past' is: half past
 Example: 5:30 - half past five
 
  */
-std::string EnglishTimeToWords::to_words( unsigned int hour, unsigned int minute )
+std::string EnglishTimeToWords::to_words( unsigned int hour, unsigned int minute ) const
 {
     if( hour < 0 || hour > 23 )
     {
@@ -84,7 +84,7 @@ std::string EnglishTimeToWords::to_words( unsigned int hour, unsigned int minute
     return res.str();
 }
 
-std::string EnglishTimeToWords::to_words( unsigned int hour, unsigned int minute, unsigned int second )
+std::string EnglishTimeToWords::to_words( unsigned int hour, unsigned int minute, unsigned int second ) const
 {
     if( second < 0 || second > 59 )
     {
@@ -95,7 +95,7 @@ std::string EnglishTimeToWords::to_words( unsigned int hour, unsigned int minute
 
     std::ostringstream res;
 
-    res << to_words( hour, minute ) << " " <<  e->Convert( second ) << " second" << plural_ending( second > 1 );
+    res << to_words( hour, minute ) << " and " <<  e->Convert( second ) << " second" << plural_ending( second > 1 );
 
     return res.str();
 }

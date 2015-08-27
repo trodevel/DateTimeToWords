@@ -1,6 +1,6 @@
 /*
 
-EnglishDateToWords.
+GermanTimeToWords.
 
 Copyright (C) 2015 Sergey Kolevatov
 
@@ -19,30 +19,28 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2412 $ $Date:: 2015-08-27 #$ $Author: serge $
+// $Revision: 2418 $ $Date:: 2015-08-27 #$ $Author: serge $
 
-#ifndef ENGLISH_DATE_TO_WORDS_H
-#define ENGLISH_DATE_TO_WORDS_H
+#ifndef GERMAN_TIME_TO_WORDS_H
+#define GERMAN_TIME_TO_WORDS_H
 
-#include "IDateToWords.h"       // IDateToWords
+#include "ITimeToWords.h"       // ITimeToWords
 
 namespace DateTimeToWords
 {
 
-class EnglishDateToWords: public IDateToWords
+class GermanTimeToWords: public ITimeToWords
 {
 public:
 
-    virtual std::string to_words( unsigned int month, unsigned int day ) const;
-    virtual std::string to_words( unsigned int year, unsigned int month, unsigned int day ) const;
+    virtual std::string to_words( unsigned int hour, unsigned int minute ) const;
+    virtual std::string to_words( unsigned int hour, unsigned int minute, unsigned int second ) const;
 
 protected:
 
-    static std::string year_to_words( unsigned int year );
-    static const std::string & month_to_words( unsigned int month );
-    static std::string day_to_words( unsigned int day );
+    static const std::string & plural_ending( bool b );
 };
 
 } // namespace DateTimeToWords
 
-#endif // ENGLISH_DATE_TO_WORDS_H
+#endif // GERMAN_TIME_TO_WORDS_H

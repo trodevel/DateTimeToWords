@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2394 $ $Date:: 2015-08-25 #$ $Author: serge $
+// $Revision: 2416 $ $Date:: 2015-08-27 #$ $Author: serge $
 
 #include "EnglishDateToWords.h"     // self
 
@@ -45,7 +45,7 @@ You say:    the     first   of  January     twenty ten
 Note: The two letters at the end of the number and the comma are often left out.
 
  */
-std::string EnglishDateToWords::to_words( unsigned int month, unsigned int day )
+std::string EnglishDateToWords::to_words( unsigned int month, unsigned int day ) const
 {
     std::ostringstream res;
 
@@ -54,7 +54,7 @@ std::string EnglishDateToWords::to_words( unsigned int month, unsigned int day )
     return res.str();
 }
 
-std::string EnglishDateToWords::to_words( unsigned int year, unsigned int month, unsigned int day )
+std::string EnglishDateToWords::to_words( unsigned int year, unsigned int month, unsigned int day ) const
 {
     std::ostringstream res;
 
@@ -131,7 +131,7 @@ const std::string & EnglishDateToWords::month_to_words( unsigned int month )
 
 std::string EnglishDateToWords::day_to_words( unsigned int day )
 {
-    if( day < 1 || day > 32)
+    if( day < 1 || day > 31 )
     {
         day = 1;
     }

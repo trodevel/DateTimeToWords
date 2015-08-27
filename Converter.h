@@ -1,6 +1,6 @@
 /*
 
-EnglishDateToWords.
+Localizers Registry.
 
 Copyright (C) 2015 Sergey Kolevatov
 
@@ -19,30 +19,32 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2412 $ $Date:: 2015-08-27 #$ $Author: serge $
+// $Revision: 2413 $ $Date:: 2015-08-27 #$ $Author: serge $
 
-#ifndef ENGLISH_DATE_TO_WORDS_H
-#define ENGLISH_DATE_TO_WORDS_H
+#ifndef DateTimeToWords_Converter_h
+#define DateTimeToWords_Converter_h
 
-#include "IDateToWords.h"       // IDateToWords
+#include "IDateToWords.h"           // IDateToWords
+#include "ITimeToWords.h"           // ITimeToWords
+#include "LocaliserRegistry.h"      // LocaliserRegistry
 
 namespace DateTimeToWords
 {
 
-class EnglishDateToWords: public IDateToWords
+class Converter
 {
+
 public:
+    Converter();
 
-    virtual std::string to_words( unsigned int month, unsigned int day ) const;
-    virtual std::string to_words( unsigned int year, unsigned int month, unsigned int day ) const;
+    const ITimeToWords* get_time_converter( const std::string & locale_code ) const;
+    const IDateToWords* get_date_converter( const std::string & locale_code ) const;
 
-protected:
+private:
 
-    static std::string year_to_words( unsigned int year );
-    static const std::string & month_to_words( unsigned int month );
-    static std::string day_to_words( unsigned int day );
+    LocaliserRegistry<IDateToWords> date_to_words_;
+    LocaliserRegistry<ITimeToWords> time_to_words_;
 };
+}
 
-} // namespace DateTimeToWords
-
-#endif // ENGLISH_DATE_TO_WORDS_H
+#endif // DateTimeToWords_Converter_h

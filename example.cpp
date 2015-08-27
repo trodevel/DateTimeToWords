@@ -1,15 +1,34 @@
+/*
+
+Example.
+
+Copyright (C) 2015 Sergey Kolevatov
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+*/
+
+// $Revision: 2426 $ $Date:: 2015-08-27 #$ $Author: serge $
+
 #include <iostream>     // std::cout
 #include <vector>
 #include <iomanip>
 
-#include "EnglishDateToWords.h" // EnglishDateToWords
-#include "EnglishTimeToWords.h" // EnglishTimeToWords
-#include "PopularEnglishTimeToWords.h" // PopularEnglishTimeToWords
+#include "Converter.h"           // Converter
 
-void test_01()
+void test_date( const DateTimeToWords::IDateToWords *c, const char *descr )
 {
-    DateTimeToWords::EnglishDateToWords c;
-
     struct date_e
     {
         unsigned y;
@@ -30,15 +49,15 @@ void test_01()
     };
 
     std::cout << "\n";
-    std::cout << "Date to words" << std::endl;
+    std::cout << descr << std::endl;
 
     for( auto & e : dates )
     {
-        std::cout << e.y << "-" << e.m << "-" << e.d << ": " << c.to_words( e.y, e.m, e.d ) << std::endl;
+        std::cout << e.y << "-" << e.m << "-" << e.d << ": " << c->to_words( e.y, e.m, e.d ) << std::endl;
     }
 }
 
-void test_time( DateTimeToWords::ITimeToWords * c, const char * descr )
+void test_time( const DateTimeToWords::ITimeToWords * c, const char * descr )
 {
     struct time_e
     {
@@ -80,22 +99,39 @@ void test_time( DateTimeToWords::ITimeToWords * c, const char * descr )
     }
 }
 
-void test_02()
+void test_01( const DateTimeToWords::Converter * r )
 {
-    DateTimeToWords::EnglishTimeToWords c;
+    const DateTimeToWords::IDateToWords *c = r->get_date_converter( "en" );
 
-    test_time( &c, "Formal way" );
+    test_date( c, "English" );
 
-    DateTimeToWords::PopularEnglishTimeToWords c2;
+    const DateTimeToWords::IDateToWords *c2 = r->get_date_converter( "de" );
 
-    test_time( &c2, "Popular way" );
+    test_date( c2, "German" );
+}
+
+void test_02( const DateTimeToWords::Converter * r )
+{
+    const DateTimeToWords::ITimeToWords *c = r->get_time_converter( "en" );
+
+    test_time( c, "Formal way" );
+
+    const DateTimeToWords::ITimeToWords *c2 = r->get_time_converter( "en_GB" );
+
+    test_time( c2, "Popular way" );
+
+    const DateTimeToWords::ITimeToWords *c3 = r->get_time_converter( "de" );
+
+    test_time( c3, "German" );
 }
 
 int main()
 {
-    test_01();
+    DateTimeToWords::Converter r;
 
-    test_02();
+    test_01( &r );
+
+    test_02( &r );
 
     return 0;
 }

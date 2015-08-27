@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2405 $ $Date:: 2015-08-26 #$ $Author: serge $
+// $Revision: 2412 $ $Date:: 2015-08-27 #$ $Author: serge $
 
 #ifndef POPULAR_ENGLISH_TIME_TO_WORDS_H
 #define POPULAR_ENGLISH_TIME_TO_WORDS_H
@@ -33,8 +33,8 @@ class PopularEnglishTimeToWords: public ITimeToWords
 {
 public:
 
-    virtual std::string to_words( unsigned int hour, unsigned int minute );
-    virtual std::string to_words( unsigned int hour, unsigned int minute, unsigned int second );
+    virtual std::string to_words( unsigned int hour, unsigned int minute ) const;
+    virtual std::string to_words( unsigned int hour, unsigned int minute, unsigned int second ) const;
 
 protected:
 
