@@ -1,6 +1,6 @@
 /*
 
-EnglishTimeToWords.
+PopularEnglishTimeToWords.
 
 Copyright (C) 2015 Sergey Kolevatov
 
@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 // $Revision: 2405 $ $Date:: 2015-08-26 #$ $Author: serge $
 
-#include "EnglishTimeToWords.h"     // self
+#include "PopularEnglishTimeToWords.h"     // self
 
 #include <sstream>                  // std::ostringstream
 #include <stdexcept>                // std::invalid_argument
@@ -54,7 +54,7 @@ Another possibility of saying '30 minutes past' is: half past
 Example: 5:30 - half past five
 
  */
-std::string EnglishTimeToWords::to_words( unsigned int hour, unsigned int minute )
+std::string PopularEnglishTimeToWords::to_words( unsigned int hour, unsigned int minute )
 {
     if( hour < 0 || hour > 23 )
     {
@@ -66,17 +66,19 @@ std::string EnglishTimeToWords::to_words( unsigned int hour, unsigned int minute
         minute = 0;
     }
 
-    const INumberToWordsConverter * e = Configurator::GetNumberToWordsConverter( "en" );
-
     std::ostringstream res;
 
     if( minute == 0 )
     {
-        res << e->Convert( hour % 12 ) << " o'clock";
+        res << hour_to_words( hour ) << " o'clock";
     }
-    else
+    else if( minute <= 30 )
     {
-        res << e->Convert( hour % 12 ) << " " << (( minute < 10 ) ? std::string( "oh " ):std::string( "" )) << e->Convert( minute );
+        res << minute_to_words( minute ) << " " << hour_to_words( hour );
+    }
+    else /*if( minute > 30 )*/
+    {
+        res << minute_to_words( minute ) << " " << hour_to_words( hour + 1 );
     }
 
     res << " " << hour_to_noon( hour ) ;
@@ -84,7 +86,7 @@ std::string EnglishTimeToWords::to_words( unsigned int hour, unsigned int minute
     return res.str();
 }
 
-std::string EnglishTimeToWords::to_words( unsigned int hour, unsigned int minute, unsigned int second )
+std::string PopularEnglishTimeToWords::to_words( unsigned int hour, unsigned int minute, unsigned int second )
 {
     if( second < 0 || second > 59 )
     {
@@ -100,7 +102,7 @@ std::string EnglishTimeToWords::to_words( unsigned int hour, unsigned int minute
     return res.str();
 }
 
-std::string EnglishTimeToWords::hour_to_words( unsigned int hour )
+std::string PopularEnglishTimeToWords::hour_to_words( unsigned int hour )
 {
     hour %= 24; // to simplify rotating
 
@@ -124,7 +126,7 @@ std::string EnglishTimeToWords::hour_to_words( unsigned int hour )
     return res.str();
 }
 
-std::string EnglishTimeToWords::minute_to_words( unsigned int minute )
+std::string PopularEnglishTimeToWords::minute_to_words( unsigned int minute )
 {
     if( minute < 0 || minute > 59 )
     {
@@ -166,7 +168,7 @@ std::string EnglishTimeToWords::minute_to_words( unsigned int minute )
     return res.str();
 }
 
-const std::string & EnglishTimeToWords::hour_to_noon( unsigned int hour )
+const std::string & PopularEnglishTimeToWords::hour_to_noon( unsigned int hour )
 {
     static const std::string m( "in the morning" );
     static const std::string a( "in the afternoon" );
@@ -174,7 +176,7 @@ const std::string & EnglishTimeToWords::hour_to_noon( unsigned int hour )
     return ( hour < 12 ) ? m : a;
 }
 
-const std::string & EnglishTimeToWords::plural_ending( bool b )
+const std::string & PopularEnglishTimeToWords::plural_ending( bool b )
 {
     static const std::string empty;
     static const std::string s( "s" );

@@ -65,6 +65,7 @@ EXE=
 SRCC =  AEnglishDateToWords.cpp \
 		EnglishDateToWords.cpp \
 		EnglishTimeToWords.cpp \
+		PopularEnglishTimeToWords.cpp \
 
 OBJS = $(patsubst %.cpp,$(OBJDIR)/%.o,$(SRCC)) $(patsubst %.c,$(OBJDIR)/%.o,$(SRCC))
 

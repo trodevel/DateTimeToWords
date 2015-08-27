@@ -1,8 +1,10 @@
 #include <iostream>     // std::cout
 #include <vector>
+#include <iomanip>
 
 #include "EnglishDateToWords.h" // EnglishDateToWords
 #include "EnglishTimeToWords.h" // EnglishTimeToWords
+#include "PopularEnglishTimeToWords.h" // PopularEnglishTimeToWords
 
 void test_01()
 {
@@ -36,42 +38,57 @@ void test_01()
     }
 }
 
-void test_02()
+void test_time( DateTimeToWords::ITimeToWords * c, const char * descr )
 {
     struct time_e
     {
         unsigned h;
         unsigned m;
+        unsigned s;
     };
 
     std::vector<time_e> times =
     {
-            { 7, 45 },
-            { 11, 6 },
-            { 7, 15 },
-            { 5, 30 },
-            { 7, 0 },
-            { 17, 20 },
-            { 3, 15 },
+            { 7, 45, 0 },
+            { 11, 6, 2 },
+            { 7, 15, 15 },
+            { 5, 30, 27 },
+            { 7, 0, 58 },
+            { 17, 20, 10 },
+            { 3, 15, 1 },
     };
 
+    std::cout << "\n";
+    std::cout << descr << std::endl;
+
+    for( auto & e : times )
+    {
+        std::cout <<
+                std::setfill( '0' ) << std::setw( 2 ) << e.h << ":" <<
+                std::setfill( '0' ) << std::setw( 2 ) << e.m << " - " << c->to_words( e.h, e.m ) << std::endl;
+    }
+
+    std::cout << "\n";
+    std::cout << descr << " (with seconds)" << std::endl;
+
+    for( auto & e : times )
+    {
+        std::cout <<
+                std::setfill( '0' ) << std::setw( 2 ) << e.h << ":" <<
+                std::setfill( '0' ) << std::setw( 2 ) << e.m << ":" <<
+                std::setfill( '0' ) << std::setw( 2 ) << e.s << " - " << c->to_words( e.h, e.m, e.s ) << std::endl;
+    }
+}
+
+void test_02()
+{
     DateTimeToWords::EnglishTimeToWords c;
 
-    std::cout << "\n";
-    std::cout << "Popular way" << std::endl;
+    test_time( &c, "Formal way" );
 
-    for( auto & e : times )
-    {
-        std::cout << e.h << ":" << e.m << " - " << c.to_words( e.h, e.m ) << std::endl;
-    }
+    DateTimeToWords::PopularEnglishTimeToWords c2;
 
-    std::cout << "\n";
-    std::cout << "Formal way" << std::endl;
-
-    for( auto & e : times )
-    {
-        std::cout << e.h << ":" << e.m << " - " << c.to_words( e.h, e.m, 0 ) << std::endl;
-    }
+    test_time( &c2, "Popular way" );
 }
 
 int main()

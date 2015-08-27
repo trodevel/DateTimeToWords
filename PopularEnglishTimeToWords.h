@@ -1,6 +1,6 @@
 /*
 
-EnglishTimeToWords.
+PopularEnglishTimeToWords.
 
 Copyright (C) 2015 Sergey Kolevatov
 
@@ -21,15 +21,15 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 // $Revision: 2405 $ $Date:: 2015-08-26 #$ $Author: serge $
 
-#ifndef ENGLISH_TIME_TO_WORDS_H
-#define ENGLISH_TIME_TO_WORDS_H
+#ifndef POPULAR_ENGLISH_TIME_TO_WORDS_H
+#define POPULAR_ENGLISH_TIME_TO_WORDS_H
 
 #include "ITimeToWords.h"       // ITimeToWords
 
 namespace DateTimeToWords
 {
 
-class EnglishTimeToWords: public ITimeToWords
+class PopularEnglishTimeToWords: public ITimeToWords
 {
 public:
 
@@ -42,8 +42,9 @@ protected:
     static std::string minute_to_words( unsigned int minute );
     static const std::string & hour_to_noon( unsigned int hour );
     static const std::string & plural_ending( bool b );
+
 };
 
 } // namespace DateTimeToWords
 
-#endif // ENGLISH_TIME_TO_WORDS_H
+#endif // POPULAR_ENGLISH_TIME_TO_WORDS_H
