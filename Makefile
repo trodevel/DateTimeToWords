@@ -69,6 +69,8 @@ SRCC =  AEnglishDateToWords.cpp \
 		GermanDateToWords.cpp \
 		GermanTimeToWords.cpp \
 		PopularEnglishTimeToWords.cpp \
+		RussianPlurality.cpp \
+		RussianTimeToWords.cpp \
 
 OBJS = $(patsubst %.cpp,$(OBJDIR)/%.o,$(SRCC)) $(patsubst %.c,$(OBJDIR)/%.o,$(SRCC))
 

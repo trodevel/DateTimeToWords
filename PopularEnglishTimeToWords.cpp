@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2412 $ $Date:: 2015-08-27 #$ $Author: serge $
+// $Revision: 2444 $ $Date:: 2015-08-28 #$ $Author: serge $
 
 #include "PopularEnglishTimeToWords.h"     // self
 
@@ -70,7 +70,10 @@ std::string PopularEnglishTimeToWords::to_words( unsigned int hour, unsigned int
 
     if( minute == 0 )
     {
-        res << hour_to_words( hour ) << " o'clock";
+        res << hour_to_words( hour );
+
+        if( hour != 0 && hour != 12 )
+            res << " o'clock";
     }
     else if( minute <= 30 )
     {
@@ -81,7 +84,8 @@ std::string PopularEnglishTimeToWords::to_words( unsigned int hour, unsigned int
         res << minute_to_words( minute ) << " " << hour_to_words( hour + 1 );
     }
 
-    res << " " << hour_to_noon( hour ) ;
+    if( hour != 0 && hour != 12 )
+        res << " " << hour_to_noon( hour ) ;
 
     return res.str();
 }

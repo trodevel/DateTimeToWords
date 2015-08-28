@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2428 $ $Date:: 2015-08-27 #$ $Author: serge $
+// $Revision: 2433 $ $Date:: 2015-08-28 #$ $Author: serge $
 
 #include "GermanDateToWords.h"     // self
 
@@ -111,7 +111,7 @@ std::string GermanDateToWords::year_to_words( unsigned int year )
         auto year_high          = year / 100;
         auto year_low           = year % 100;
 
-        res << e->Convert( year_high ) << " hundred";
+        res << e->Convert( year_high ) << " hundert";
 
         if( year_low > 0 )
         {

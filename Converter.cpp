@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2430 $ $Date:: 2015-08-27 #$ $Author: serge $
+// $Revision: 2437 $ $Date:: 2015-08-28 #$ $Author: serge $
 
 #include "Converter.h"                   // self
 
@@ -29,6 +29,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include "GermanDateToWords.h"          // GermanDateToWords
 #include "GermanTimeToWords.h"          // GermanTimeToWords
 #include "PopularEnglishTimeToWords.h"  // PopularEnglishTimeToWords
+#include "RussianTimeToWords.h"         // RussianTimeToWords
 
 using namespace DateTimeToWords;
 
@@ -43,6 +44,7 @@ Converter::Converter():
     time_to_words_.insert( "en",    new EnglishTimeToWords() );
     time_to_words_.insert( "de",    new GermanTimeToWords() );
     time_to_words_.insert( "en_GB", new PopularEnglishTimeToWords() );
+    time_to_words_.insert( "ru",    new RussianTimeToWords() );
 }
 
 const ITimeToWords* Converter::get_time_converter( const std::string & locale_code ) const

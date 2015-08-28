@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2426 $ $Date:: 2015-08-27 #$ $Author: serge $
+// $Revision: 2443 $ $Date:: 2015-08-28 #$ $Author: serge $
 
 #include <iostream>     // std::cout
 #include <vector>
@@ -68,13 +68,21 @@ void test_time( const DateTimeToWords::ITimeToWords * c, const char * descr )
 
     std::vector<time_e> times =
     {
-            { 7, 45, 0 },
-            { 11, 6, 2 },
-            { 7, 15, 15 },
-            { 5, 30, 27 },
-            { 7, 0, 58 },
-            { 17, 20, 10 },
+            { 0, 0, 0 },
+            { 1, 1, 1 },
+            { 2, 2, 2 },
             { 3, 15, 1 },
+            { 4, 4, 4 },
+            { 4, 33, 27 },
+            { 5, 5, 5 },
+            { 5, 30, 27 },
+            { 6, 0, 58 },
+            { 7, 15, 15 },
+            { 8, 45, 0 },
+            { 11, 6, 2 },
+            { 12, 00, 00 },
+            { 17, 22, 10 },
+            { 21, 17, 10 },
     };
 
     std::cout << "\n";
@@ -123,6 +131,10 @@ void test_02( const DateTimeToWords::Converter * r )
     const DateTimeToWords::ITimeToWords *c3 = r->get_time_converter( "de" );
 
     test_time( c3, "German" );
+
+    const DateTimeToWords::ITimeToWords *c4 = r->get_time_converter( "ru" );
+
+    test_time( c4, "Russian" );
 }
 
 int main()
