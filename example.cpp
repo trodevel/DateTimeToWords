@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2443 $ $Date:: 2015-08-28 #$ $Author: serge $
+// $Revision: 2448 $ $Date:: 2015-08-28 #$ $Author: serge $
 
 #include <iostream>     // std::cout
 #include <vector>
@@ -122,11 +122,11 @@ void test_02( const DateTimeToWords::Converter * r )
 {
     const DateTimeToWords::ITimeToWords *c = r->get_time_converter( "en" );
 
-    test_time( c, "Formal way" );
+    test_time( c, "English - Formal way" );
 
     const DateTimeToWords::ITimeToWords *c2 = r->get_time_converter( "en_GB" );
 
-    test_time( c2, "Popular way" );
+    test_time( c2, "English - Popular way" );
 
     const DateTimeToWords::ITimeToWords *c3 = r->get_time_converter( "de" );
 

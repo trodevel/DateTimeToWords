@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2412 $ $Date:: 2015-08-27 #$ $Author: serge $
+// $Revision: 2447 $ $Date:: 2015-08-28 #$ $Author: serge $
 
 #include "EnglishTimeToWords.h"     // self
 
@@ -95,7 +95,7 @@ std::string EnglishTimeToWords::to_words( unsigned int hour, unsigned int minute
 
     std::ostringstream res;
 
-    res << to_words( hour, minute ) << " and " <<  e->Convert( second ) << " second" << plural_ending( second > 1 );
+    res << to_words( hour, minute ) << " and " <<  e->Convert( second ) << " second" << plural_ending( second );
 
     return res.str();
 }
@@ -154,13 +154,13 @@ std::string EnglishTimeToWords::minute_to_words( unsigned int minute )
     }
     else if( minute <= 30 )
     {
-        res << e->Convert( minute ) << " minute" << plural_ending( minute > 1 ) << " past";
+        res << e->Convert( minute ) << " minute" << plural_ending( minute ) << " past";
     }
     else /*if( minute > 30 )*/
     {
         unsigned int rest_min = 60 - minute;
 
-        res << e->Convert( rest_min ) << " minute" << plural_ending( rest_min > 1 ) << " to";
+        res << e->Convert( rest_min ) << " minute" << plural_ending( rest_min ) << " to";
     }
 
     return res.str();
@@ -174,10 +174,38 @@ const std::string & EnglishTimeToWords::hour_to_noon( unsigned int hour )
     return ( hour < 12 ) ? m : a;
 }
 
-const std::string & EnglishTimeToWords::plural_ending( bool b )
+/*
+http://ell.stackexchange.com/questions/7817/singular-or-plural-for-seconds
+
+SOME of the rules around 1 are:
+
+    "X somethings" when X is not 1
+
+    For 1 and 0 amounts with decimals pronounced "0 point Y" and "1 point Y",
+    it is somethings:
+    0.5 somethings, 0.1 somethings, 1.5 somethings, 1.1 somethings
+
+    For enumerations ending on a something, we have half a something,
+    a quarter of a something because it is still relative to 1 (or a)
+
+The same is for time, weight, money and other enumerations.
+
+    1 second/kilo/dollar
+
+    half a second/kilo/dollar
+
+    0 seconds/kilos/dollars
+    0.5 (zero point five) seconds/kilos/dollars
+    0.1 (zero point one) seconds/kilos/dollars
+
+For the rest of the rules and exceptions and possibly perceived rules,
+have a read of the answers to Is -1 singular or plural?
+
+ */
+const std::string & EnglishTimeToWords::plural_ending( unsigned int v )
 {
     static const std::string empty;
     static const std::string s( "s" );
 
-    return b ? s : empty;
+    return ( v != 1 ) ? s : empty;
 }

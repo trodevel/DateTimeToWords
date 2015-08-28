@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2412 $ $Date:: 2015-08-27 #$ $Author: serge $
+// $Revision: 2447 $ $Date:: 2015-08-28 #$ $Author: serge $
 
 #ifndef ENGLISH_TIME_TO_WORDS_H
 #define ENGLISH_TIME_TO_WORDS_H
@@ -41,7 +41,7 @@ protected:
     static std::string hour_to_words( unsigned int hour );
     static std::string minute_to_words( unsigned int minute );
     static const std::string & hour_to_noon( unsigned int hour );
-    static const std::string & plural_ending( bool b );
+    static const std::string & plural_ending( unsigned int v );
 };
 
 } // namespace DateTimeToWords
