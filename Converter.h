@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2413 $ $Date:: 2015-08-27 #$ $Author: serge $
+// $Revision: 2460 $ $Date:: 2015-08-29 #$ $Author: serge $
 
 #ifndef DateTimeToWords_Converter_h
 #define DateTimeToWords_Converter_h
@@ -33,12 +33,15 @@ namespace DateTimeToWords
 
 class Converter
 {
-
 public:
-    Converter();
 
-    const ITimeToWords* get_time_converter( const std::string & locale_code ) const;
-    const IDateToWords* get_date_converter( const std::string & locale_code ) const;
+    static const ITimeToWords* get_time_converter( const std::string & locale_code );
+    static const IDateToWords* get_date_converter( const std::string & locale_code );
+
+    static const Converter* get();
+
+private:
+    Converter();
 
 private:
 

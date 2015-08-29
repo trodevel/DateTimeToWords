@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2456 $ $Date:: 2015-08-29 #$ $Author: serge $
+// $Revision: 2461 $ $Date:: 2015-08-29 #$ $Author: serge $
 
 #include <iostream>     // std::cout
 #include <vector>
@@ -114,47 +114,45 @@ void test_time( const DateTimeToWords::ITimeToWords * c, const char * descr )
     }
 }
 
-void test_01( const DateTimeToWords::Converter * r )
+void test_01()
 {
-    const DateTimeToWords::IDateToWords *c = r->get_date_converter( "en" );
+    const DateTimeToWords::IDateToWords *c = DateTimeToWords::Converter::get_date_converter( "en" );
 
     test_date( c, "English" );
 
-    const DateTimeToWords::IDateToWords *c2 = r->get_date_converter( "de" );
+    const DateTimeToWords::IDateToWords *c2 = DateTimeToWords::Converter::get_date_converter( "de" );
 
     test_date( c2, "German" );
 
-    const DateTimeToWords::IDateToWords *c3 = r->get_date_converter( "ru" );
+    const DateTimeToWords::IDateToWords *c3 = DateTimeToWords::Converter::get_date_converter( "ru" );
 
     test_date( c3, "Russian" );
 }
 
-void test_02( const DateTimeToWords::Converter * r )
+void test_02()
 {
-    const DateTimeToWords::ITimeToWords *c = r->get_time_converter( "en" );
+    const DateTimeToWords::ITimeToWords *c = DateTimeToWords::Converter::get_time_converter( "en" );
 
     test_time( c, "English - Formal way" );
 
-    const DateTimeToWords::ITimeToWords *c2 = r->get_time_converter( "en_GB" );
+    const DateTimeToWords::ITimeToWords *c2 = DateTimeToWords::Converter::get_time_converter( "en_GB" );
 
     test_time( c2, "English - Popular way" );
 
-    const DateTimeToWords::ITimeToWords *c3 = r->get_time_converter( "de" );
+    const DateTimeToWords::ITimeToWords *c3 = DateTimeToWords::Converter::get_time_converter( "de" );
 
     test_time( c3, "German" );
 
-    const DateTimeToWords::ITimeToWords *c4 = r->get_time_converter( "ru" );
+    const DateTimeToWords::ITimeToWords *c4 = DateTimeToWords::Converter::get_time_converter( "ru" );
 
     test_time( c4, "Russian" );
 }
 
 int main()
 {
-    DateTimeToWords::Converter r;
+    test_01();
 
-    test_01( &r );
-
-    test_02( &r );
+    test_02();
 
     return 0;
 }

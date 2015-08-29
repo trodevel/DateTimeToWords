@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2452 $ $Date:: 2015-08-29 #$ $Author: serge $
+// $Revision: 2460 $ $Date:: 2015-08-29 #$ $Author: serge $
 
 #include "Converter.h"                   // self
 
@@ -49,12 +49,19 @@ Converter::Converter():
     time_to_words_.insert( "ru",    new RussianTimeToWords() );
 }
 
-const ITimeToWords* Converter::get_time_converter( const std::string & locale_code ) const
+const Converter* Converter::get()
 {
-    return time_to_words_.find( locale_code );
+    static Converter res;
+
+    return &res;
 }
 
-const IDateToWords* Converter::get_date_converter( const std::string & locale_code ) const
+const ITimeToWords* Converter::get_time_converter( const std::string & locale_code )
 {
-    return date_to_words_.find( locale_code );
+    return get()->time_to_words_.find( locale_code );
+}
+
+const IDateToWords* Converter::get_date_converter( const std::string & locale_code )
+{
+    return get()->date_to_words_.find( locale_code );
 }
