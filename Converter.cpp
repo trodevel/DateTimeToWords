@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2437 $ $Date:: 2015-08-28 #$ $Author: serge $
+// $Revision: 2452 $ $Date:: 2015-08-29 #$ $Author: serge $
 
 #include "Converter.h"                   // self
 
@@ -28,6 +28,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include "EnglishTimeToWords.h"         // EnglishTimeToWords
 #include "GermanDateToWords.h"          // GermanDateToWords
 #include "GermanTimeToWords.h"          // GermanTimeToWords
+#include "RussianDateToWords.h"         // RussianDateToWords
 #include "PopularEnglishTimeToWords.h"  // PopularEnglishTimeToWords
 #include "RussianTimeToWords.h"         // RussianTimeToWords
 
@@ -39,6 +40,7 @@ Converter::Converter():
 {
     date_to_words_.insert( "en",    new EnglishDateToWords() );
     date_to_words_.insert( "de",    new GermanDateToWords() );
+    date_to_words_.insert( "ru",    new RussianDateToWords() );
     date_to_words_.insert( "en_US", new AEnglishDateToWords() );
 
     time_to_words_.insert( "en",    new EnglishTimeToWords() );

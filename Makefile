@@ -69,6 +69,7 @@ SRCC =  AEnglishDateToWords.cpp \
 		GermanDateToWords.cpp \
 		GermanTimeToWords.cpp \
 		PopularEnglishTimeToWords.cpp \
+		RussianDateToWords.cpp \
 		RussianPlurality.cpp \
 		RussianTimeToWords.cpp \
 

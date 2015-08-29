@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2448 $ $Date:: 2015-08-28 #$ $Author: serge $
+// $Revision: 2456 $ $Date:: 2015-08-29 #$ $Author: serge $
 
 #include <iostream>     // std::cout
 #include <vector>
@@ -38,14 +38,18 @@ void test_date( const DateTimeToWords::IDateToWords *c, const char *descr )
 
     std::vector<date_e> dates =
     {
+            { 1899, 1, 1 },
+            { 1900, 2, 15 },
+            { 1901, 3, 31 },
+            { 1999, 4, 30 },
+            { 2000, 5, 29 },
+            { 2009, 6, 21 },
+            { 2010, 7, 21 },
             { 2015, 8, 21 },
-            { 1899, 8, 21 },
-            { 1900, 8, 21 },
-            { 1901, 8, 21 },
-            { 1999, 8, 21 },
-            { 2000, 8, 21 },
-            { 2009, 8, 21 },
-            { 2010, 8, 21 },
+            { 2015, 9, 21 },
+            { 2015, 10, 21 },
+            { 2015, 11, 21 },
+            { 2015, 12, 21 },
     };
 
     std::cout << "\n";
@@ -53,7 +57,10 @@ void test_date( const DateTimeToWords::IDateToWords *c, const char *descr )
 
     for( auto & e : dates )
     {
-        std::cout << e.y << "-" << e.m << "-" << e.d << ": " << c->to_words( e.y, e.m, e.d ) << std::endl;
+        std::cout << std::setfill( '0' ) << std::setw( 2 ) << e.y << "-"
+                << std::setfill( '0' ) << std::setw( 2 ) << e.m << "-"
+                << std::setfill( '0' ) << std::setw( 2 ) << e.d << ": "
+                << c->to_words( e.y, e.m, e.d ) << std::endl;
     }
 }
 
@@ -116,6 +123,10 @@ void test_01( const DateTimeToWords::Converter * r )
     const DateTimeToWords::IDateToWords *c2 = r->get_date_converter( "de" );
 
     test_date( c2, "German" );
+
+    const DateTimeToWords::IDateToWords *c3 = r->get_date_converter( "ru" );
+
+    test_date( c3, "Russian" );
 }
 
 void test_02( const DateTimeToWords::Converter * r )

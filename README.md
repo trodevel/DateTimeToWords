@@ -10,24 +10,46 @@ Example:
 $ ./example
 
 English
-2015-8-21: the twenty-first of August twenty fifteen
-1899-8-21: the twenty-first of August eighteen ninety-nine
-1900-8-21: the twenty-first of August nineteen hundred
-1901-8-21: the twenty-first of August one thousand nine hundred one
-1999-8-21: the twenty-first of August nineteen ninety-nine
-2000-8-21: the twenty-first of August two thousand
-2009-8-21: the twenty-first of August two thousand nine
-2010-8-21: the twenty-first of August twenty ten
+1899-01-01: the first of January eighteen ninety-nine
+1900-02-15: the fifteenth of February nineteen hundred
+1901-03-31: the thirty-first of March one thousand nine hundred one
+1999-04-30: the thirtieth of April nineteen ninety-nine
+2000-05-29: the twenty-ninth of May two thousand
+2009-06-21: the twenty-first of June two thousand nine
+2010-07-21: the twenty-first of July twenty ten
+2015-08-21: the twenty-first of August twenty fifteen
+2015-09-21: the twenty-first of September twenty fifteen
+2015-10-21: the twenty-first of October twenty fifteen
+2015-11-21: the twenty-first of November twenty fifteen
+2015-12-21: the twenty-first of December twenty fifteen
 
 German
-2015-8-21: einundzwanzigste August zweitausendfünfzehn
-1899-8-21: einundzwanzigste August achtzehn hundert neunundneunzig
-1900-8-21: einundzwanzigste August neunzehn hundert
-1901-8-21: einundzwanzigste August neunzehn hundert eins
-1999-8-21: einundzwanzigste August eintausendneunhundertneunundneunzig
-2000-8-21: einundzwanzigste August zweitausend
-2009-8-21: einundzwanzigste August zweitausendneun
-2010-8-21: einundzwanzigste August zweitausendzehn
+1899-01-01: erste Januar achtzehn hundert neunundneunzig
+1900-02-15: fünfzehnte Februar neunzehn hundert
+1901-03-31: einunddreißigste März neunzehn hundert eins
+1999-04-30: dreißigste April eintausendneunhundertneunundneunzig
+2000-05-29: neunundzwanzigste Mai zweitausend
+2009-06-21: einundzwanzigste Juni zweitausendneun
+2010-07-21: einundzwanzigste Juli zweitausendzehn
+2015-08-21: einundzwanzigste August zweitausendfünfzehn
+2015-09-21: einundzwanzigste September zweitausendfünfzehn
+2015-10-21: einundzwanzigste Oktober zweitausendfünfzehn
+2015-11-21: einundzwanzigste November zweitausendfünfzehn
+2015-12-21: einundzwanzigste Dezember zweitausendfünfzehn
+
+Russian
+1899-01-01: первое января одна тысяча восемьсот девяносто девятого года
+1900-02-15: пятнадцатое февраля одна тысяча девятисотого года
+1901-03-31: тридцать первое марта одна тысяча девятьсот первого года
+1999-04-30: тридцатое апреля одна тысяча девятьсот девяносто девятого года
+2000-05-29: двадцать девятое мая двухтысячного года
+2009-06-21: двадцать первое июня две тысячи девятого года
+2010-07-21: двадцать первое июля две тысячи десятого года
+2015-08-21: двадцать первое августа две тысячи пятнадцатого года
+2015-09-21: двадцать первое сентября две тысячи пятнадцатого года
+2015-10-21: двадцать первое октября две тысячи пятнадцатого года
+2015-11-21: двадцать первое ноября две тысячи пятнадцатого года
+2015-12-21: двадцать первое декабря две тысячи пятнадцатого года
 
 English - Formal way
 00:00 - zero o'clock in the morning
