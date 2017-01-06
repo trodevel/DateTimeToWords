@@ -109,13 +109,10 @@ $(BINDIR)/$(TARGET): $(LIBS) $(OBJDIR)/$(TARGET).o $(OBJS) $(BINDIR)/$(STATICLIB
 	$(CC) $(CFLAGS) -o $@ $(OBJDIR)/$(TARGET).o $(BINDIR)/$(LIBNAME).a $(LIBS) $(EXT_LIBS) $(LFLAGS_TEST)
 
 HumanizerCpp:
-	cd ../$@; \
-	pwd; ll; \
-	make; \
-	cd ../$(PROJECT)
+	make -C ../$@
 
 $(BINDIR)/lib%.a: $(LIB_NAMES)
-	echo AAAA
+	#echo AAAA
 	ln -sf ../../$</$@ $(BINDIR); \
 
 $(BINDIR):
